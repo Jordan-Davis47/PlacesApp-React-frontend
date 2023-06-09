@@ -13,6 +13,8 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import "./Auth.css";
 
+import image from "../../images/Screenshot (4).png";
+
 const Auth = () => {
 	const auth = useContext(AuthContext);
 	const [isLoginMode, setIsLoginMode] = useState(true);
@@ -112,6 +114,8 @@ const Auth = () => {
 				{isLoading && <LoadingSpinner asOverlay />}
 				<h2>Login Required</h2>
 				<hr />
+				<img src={image} alt={"dummy"} />
+
 				<form onSubmit={submitHandler}>
 					{!isLoginMode && <Input element="input" id="name" type="text" label="Username" validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a username" onInput={inputHandler} />}
 					{!isLoginMode && <ImageUpload id="image" onInput={inputHandler} center errorText={"Please provide an image"} />}
